@@ -1,3 +1,3 @@
-## Pretty self explanatory
+## SAPA-APP
 
-e-wallet and fund transfer app
+e-wallet and fund transfer backend
