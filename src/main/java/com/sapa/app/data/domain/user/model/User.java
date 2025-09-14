@@ -13,6 +13,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -28,7 +29,7 @@ public class User extends BaseModel implements UserDetails {
     private String email;
     private String phoneNumber;
     private String password;
-    private Set<GrantedAuthority> authorities;
+    private Set<GrantedAuthority> authorities = new HashSet<>();
 
     @OneToOne
     @JoinColumn(name = "wallet_id")

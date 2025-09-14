@@ -38,11 +38,6 @@ public class BeanConfig {
         return objectMapper;
     }
 
-//    @Bean
-//    public Jedis jedis(){
-//        return new Jedis();
-//    }
-
     @Bean
     public JwtDecoder jwtDecoder() {
         return NimbusJwtDecoder.withSecretKey(secretKeySpec).build();
