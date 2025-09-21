@@ -19,7 +19,13 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
 
     public AuthenticationResponse authenticate(String username, String password){
-        AuthUserDetailsDTO userDetails = authUserDetailsService.loadUserByUsername(username);
+        AuthUserDetailsDTO userDetails;
+        try{
+            userDetails = authUserDetailsService.loadUserByUsername(username);
+        }catch (ResponseStatusException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Incorrect Username or Password");
+        }
+
         boolean correctPassword = passwordEncoder.matches(password,userDetails.getPassword());
         if (! correctPassword){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Incorrect Username or Password");
