@@ -4,7 +4,7 @@ import com.sapa.app.common.bean.SapaBeanUtil;
 import com.sapa.app.data.actions.onboarding.dto.OnboardedUserDTO;
 import com.sapa.app.data.domain.user.model.User;
 import com.sapa.app.data.domain.user.repository.UserRepository;
-import com.sapa.app.service.onboarding.request.UserOnboardingRequest;
+import com.sapa.app.service.onboarding.request.OnboardingRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserOnboardingDataService {
     private final UserRepository userRepository;
 
-    public OnboardedUserDTO onboardUser(UserOnboardingRequest userRequest){
+    public OnboardedUserDTO onboardUser(OnboardingRequest userRequest){
         User user = new User();
         SapaBeanUtil.copyPresentProperties(userRequest, user);
         userRepository.save(user);

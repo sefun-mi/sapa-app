@@ -10,8 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +19,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User extends BaseModel implements UserDetails {
+public class User extends BaseModel {
 
     @Column(unique = true, nullable = false) //user deletion not yet
     private String username;
@@ -29,7 +27,7 @@ public class User extends BaseModel implements UserDetails {
     private String email;
     private String phoneNumber;
     private String password;
-    private Set<GrantedAuthority> authorities = new HashSet<>();
+    private Set<String> permissions = new HashSet<>();
 
     @OneToOne
     @JoinColumn(name = "wallet_id")
