@@ -21,7 +21,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class User extends BaseModel {
 
-    @Column(unique = true, nullable = false) //user deletion not yet
+    @Column(unique = true, nullable = false) //todo user deletion not yet
     private String username;
 
     private String email;
